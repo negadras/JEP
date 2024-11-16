@@ -47,23 +47,20 @@ public class PlatformThread {
 
         int nThreads = Runtime.getRuntime().availableProcessors() * 2;
         System.out.println("Number of threads: " + nThreads);
-        ExecutorService executorService = Executors.newFixedThreadPool(nThreads);
 
-        try {
-            for (int i = 0; i < 1000; i++) {
+        try(ExecutorService executorService = Executors.newFixedThreadPool(nThreads)) {
+            for (int i = 0; i < 10_000; i++) {
                 int taskId = i;
-                executorService.submit(() -> execute(taskId));
+                executorService.submit(() -> SimulatedIOTask.execute(taskId));
             }
-        } finally {
+
             executorService.shutdown();
-            try {
-                // Wait for all tasks to complete or timeout after 1 hour
-                if (!executorService.awaitTermination(1, TimeUnit.HOURS)) {
-                    executorService.shutdownNow();
-                }
-            } catch (InterruptedException e) {
+            if (!executorService.awaitTermination(1, TimeUnit.HOURS)) {
                 executorService.shutdownNow();
             }
+        } catch (InterruptedException e) {
+            System.err.println("Tasks interrupted");
+            Thread.currentThread().interrupt();
         }
 
         Instant end = Instant.now();
