@@ -1,8 +1,11 @@
 package com.jep;
 
 import java.time.Duration;
+import java.util.logging.Logger;
 
 public class SimulatedIOTask {
+
+    private static final Logger LOGGER = Logger.getLogger(SimulatedIOTask.class.getName());
 
     /**
      * Simulates an input/output bound task that takes some time to complete.
@@ -15,12 +18,14 @@ public class SimulatedIOTask {
      * @param taskId The identifier for the task
      */
     static void execute(int taskId) {
-        System.out.println("Task " + taskId + " started: " + Thread.currentThread());
+        LOGGER.info("I/O task " + taskId + " started: " + Thread.currentThread());
         try {
             Thread.sleep(Duration.ofMillis(100));
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
+            LOGGER.warning("I/O task " + taskId + " interrupted: " + Thread.currentThread());
+            return;
         }
-        System.out.println("Task " + taskId + " completed: " + Thread.currentThread());
+        LOGGER.info("I/O task " + taskId + " completed: " + Thread.currentThread());
     }
 }
