@@ -9,42 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      # Checkout the code
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Set up JDK 21
+      - uses: actions/checkout@v4
       - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
-
-      # Build all modules
       - name: Build all modules
         run: mvn -B package
-
-      # Generate dependency graph in JSON format
-      - name: Generate dependency graph in JSON
-        run: mvn com.github.ferstl:depgraph-maven-plugin:aggregate -DoutputFormat=json
-
-      # Debug JSON Dependency Graph
-      - name: Debug JSON Dependency Graph
-        run: cat target/dependency-graph.json || echo "Dependency graph is empty"
-
-      # List target directory for debugging
-      - name: List target directory
-        run: ls -la target
-
-      # Submit dependencies to GitHub Advanced Security
-      - name: Submit dependency graph
-        uses: advanced-security/maven-dependency-submission-action@v1
-        with:
-          dependency-graph-path: target/dependency-graph.json
-
-      # Debug Environment Variables
-      - name: Debug Environment
-        run: env
+      - name: Run Tests
+        run: mvn test
