@@ -10,7 +10,13 @@
   </parent>
 
   <artifactId>JEP444</artifactId>
+  <packaging>pom</packaging>
   <name>JEP444</name>
+
+  <modules>
+    <module>VirtualThreadExample</module>
+    <module>JEP_444</module>
+  </modules>
 
   <dependencies>
     <dependency>
