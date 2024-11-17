@@ -45,12 +45,26 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-      
+
         <plugins>
             <plugin>
                 <groupId>com.github.ferstl</groupId>
                 <artifactId>depgraph-maven-plugin</artifactId>
                 <version>4.0.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>aggregate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scope>compile</scope>
+                    <includeParentProjects>true</includeParentProjects>
+                    <includes>
+                        <include>com.jep:*</include>
+                    </includes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
