@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<ruleset name="Custom PMD Ruleset"
+         xmlns="https://pmd.github.io/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://pmd.github.io/ruleset/2.0.0 https://pmd.github.io/ruleset_2_0_0.xsd"
+         version="7.0.0">
+
+    <description>
+        Custom PMD Ruleset for suppressing specific warnings and enforcing coding standards.
+    </description>
+
+    <!-- Use this to inherit PMD's default ruleset -->
+    <rule ref="category/java/bestpractices.xml"/>
+    <rule ref="category/java/codestyle.xml"/>
+    <rule ref="category/java/design.xml"/>
+    <rule ref="category/java/errorprone.xml"/>
+    <rule ref="category/java/performance.xml"/>
+
+    <!-- Disable specific rules -->
+    <rule ref="category/java/codestyle.xml/CommentDefaultAccessModifier">
+        <priority>5</priority>
+        <description>Default access modifiers do not need to be commented.</description>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/MethodArgumentCouldBeFinal">
+        <priority>5</priority>
+        <description>Ignoring 'MethodArgumentCouldBeFinal' as final parameters are optional.</description>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/LocalVariableCouldBeFinal">
+        <priority>5</priority>
+        <description>Ignoring 'LocalVariableCouldBeFinal' as it's not strictly necessary.</description>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/LongVariable">
+        <priority>5</priority>
+        <description>Disabling checks for long variable names.</description>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/ShortVariable">
+        <priority>5</priority>
+        <description>Disabling checks for short variable names.</description>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml/UnnecessaryImport">
+        <priority>5</priority>
+        <description>Unnecessary static imports are allowed in some cases.</description>
+    </rule>
+
+</ruleset>

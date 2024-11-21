@@ -35,7 +35,8 @@ public class PlatformThreadPokemonFetcher {
 
         executorService.shutdown();
         long end = System.currentTimeMillis();
+        long durationTime = end - start;
 
-        LOGGER.info(STR."Time taken: \{end - start}ms");
+        LOGGER.info(String.format("Time taken: %dms", durationTime));
     }
 }

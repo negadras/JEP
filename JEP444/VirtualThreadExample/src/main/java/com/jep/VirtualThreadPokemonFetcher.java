@@ -35,6 +35,7 @@ public class VirtualThreadPokemonFetcher {
         }
 
         long endTime = System.currentTimeMillis();
-        LOGGER.info(STR."Total execution time: \{endTime - startTime} milliseconds");
+        long durationTime = endTime - startTime;
+        LOGGER.info(String.format("Total execution time: %d milliseconds", durationTime));
     }
 }

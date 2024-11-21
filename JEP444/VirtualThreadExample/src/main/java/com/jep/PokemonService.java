@@ -20,9 +20,9 @@ public class PokemonService {
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            LOGGER.info(STR."Fetched Pokemon \{pokemonId}: \{response.body()}");
+            LOGGER.info(String.format("Fetched Pokemon %s: %s", pokemonId, response.body()));
         } catch (Exception e) {
-            LOGGER.severe(STR."Error fetching Pokemon: \{pokemonId}");
+            LOGGER.severe(String.format("Error fetching Pokemon: %s", pokemonId));
             e.printStackTrace();
         }
     }
