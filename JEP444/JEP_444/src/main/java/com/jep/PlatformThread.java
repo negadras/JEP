@@ -6,8 +6,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import static com.jep.SimulatedIOTask.execute;
-
 /**
  * Demonstrates the use of traditional Platform Threads for comparison with Virtual Threads.
  *

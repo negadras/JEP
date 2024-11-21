@@ -6,3 +6,5 @@ JEP*/.idea/
 */target/
 
 target
+
+megalinter-reports

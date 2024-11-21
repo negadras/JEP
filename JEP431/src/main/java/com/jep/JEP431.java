@@ -37,16 +37,16 @@ public class JEP431 {
         orderedSet.addLast("two");
         orderedSet.addLast("three");
 
-        System.out.println(STR."Original set: \{orderedSet}");
-        System.out.println(STR."First element: \{orderedSet.getFirst()}");
-        System.out.println(STR."Last element: \{orderedSet.getLast()}");
+        System.out.println("Original set: " + orderedSet);
+        System.out.println("First element: " + orderedSet.getFirst());
+        System.out.println("Last element: " + orderedSet.getLast());
 
         // Reverse the order of the set
-        System.out.println(STR."Reversed set: \{orderedSet.reversed()}");
+        System.out.println("Reversed set: " + orderedSet.reversed());
 
         // Move an existing element to the first position
         orderedSet.addFirst("two");
-        System.out.println(STR."Set with 'two' moved to the first position: \{orderedSet}");
+        System.out.println("Set with 'two' moved to the first position: " + orderedSet);
 
         // Example with SequencedSet using LinkedHashMap
         SequencedMap<String, Integer> orderedMap = new LinkedHashMap<>();
@@ -55,15 +55,15 @@ public class JEP431 {
         orderedMap.putLast("two", 2);
         orderedMap.putLast("three", 3);
 
-        System.out.println(STR."Original map: \{orderedMap}");
-        System.out.println(STR."First entry: \{orderedMap.firstEntry()}");
-        System.out.println(STR."Last entry: \{orderedMap.lastEntry()}");
+        System.out.println("Original map: " + orderedMap);
+        System.out.println("First entry: " + orderedMap.firstEntry());
+        System.out.println("Last entry: " + orderedMap.lastEntry());
 
         // Reverse the order of the map
-        System.out.println(STR."Reversed map: \{orderedMap.reversed()}");
+        System.out.println("Reversed map: " + orderedMap.reversed());
 
         // Move an existing entry to the first position
         orderedMap.putFirst("two", 2);
-        System.out.println(STR."Map with 'two' moved to the first position: \{orderedMap}");
+        System.out.println("Map with 'two' moved to the first position: " + orderedMap);
     }
 }

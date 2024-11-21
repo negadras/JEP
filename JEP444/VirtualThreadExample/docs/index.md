@@ -2,11 +2,12 @@
 
 ## Overview
 
-This project compares the performance of platform threads and virtual threads in Java for making concurrent API requests to a locally hosted PokeAPI instance.
+This project compares the performance of platform threads and virtual threads in Java for making concurrent API
+requests to a locally hosted PokeAPI instance.
 
 ## Setup
 
-- **API**: Locally hosted PokeAPI (http://localhost/api/v2/pokemon/)
+- **API**: Locally hosted PokeAPI (<http://localhost/api/v2/pokemon/>)
 - **Number of Requests**: 1025
 - **Java Version**: Java 21 (for virtual thread support)
 
@@ -27,10 +28,10 @@ For detailed setup instructions and troubleshooting, refer to the [official Poke
 
 ## Results
 
-| Thread Type | Execution Time |
-|-------------|----------------|
-| Platform Threads | 1403 ms |
-| Virtual Threads | 1017 ms |
+| Thread Type      | Execution Time |
+|------------------|----------------|
+| Platform Threads | 1403 ms        |
+| Virtual Threads  | 1017 ms        |
 
 Virtual threads showed a performance improvement of approximately 27.5% compared to platform threads.
 
